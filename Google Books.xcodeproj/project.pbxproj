@@ -14,6 +14,7 @@
 		EBF8476321C71E930063B2CB /* SearchTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBF8476221C71E930063B2CB /* SearchTableViewCell.swift */; };
 		EBF8476521C71EC40063B2CB /* BookCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBF8476421C71EC40063B2CB /* BookCollectionViewCell.swift */; };
 		EBF8476721C71F150063B2CB /* ShelveTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBF8476621C71F150063B2CB /* ShelveTableViewCell.swift */; };
+		EBF8476921C83A440063B2CB /* Book.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBF8476821C83A440063B2CB /* Book.swift */; };
 		EBFAAF9821BF27D800121710 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBFAAF9721BF27D800121710 /* AppDelegate.swift */; };
 		EBFAAF9D21BF27D800121710 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EBFAAF9B21BF27D800121710 /* Main.storyboard */; };
 		EBFAAF9F21BF27DA00121710 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EBFAAF9E21BF27DA00121710 /* Assets.xcassets */; };
@@ -28,6 +29,7 @@
 		EBF8476221C71E930063B2CB /* SearchTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTableViewCell.swift; sourceTree = "<group>"; };
 		EBF8476421C71EC40063B2CB /* BookCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookCollectionViewCell.swift; sourceTree = "<group>"; };
 		EBF8476621C71F150063B2CB /* ShelveTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShelveTableViewCell.swift; sourceTree = "<group>"; };
+		EBF8476821C83A440063B2CB /* Book.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Book.swift; sourceTree = "<group>"; };
 		EBFAAF9421BF27D800121710 /* Google Books.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Google Books.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		EBFAAF9721BF27D800121710 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		EBFAAF9C21BF27D800121710 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -102,6 +104,7 @@
 		EBFAAFAB21BF938200121710 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				EBF8476821C83A440063B2CB /* Book.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -182,6 +185,7 @@
 				EBF8476121C71E570063B2CB /* DetailViewController.swift in Sources */,
 				EBF8476321C71E930063B2CB /* SearchTableViewCell.swift in Sources */,
 				EBF8476521C71EC40063B2CB /* BookCollectionViewCell.swift in Sources */,
+				EBF8476921C83A440063B2CB /* Book.swift in Sources */,
 				EBF8475F21C71E2E0063B2CB /* ShelfTableViewController.swift in Sources */,
 				EBF8476721C71F150063B2CB /* ShelveTableViewCell.swift in Sources */,
 				EBF8475B21C71DB70063B2CB /* SearchTableViewController.swift in Sources */,
