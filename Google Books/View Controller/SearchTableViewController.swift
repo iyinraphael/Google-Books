@@ -8,19 +8,24 @@
 
 import UIKit
 
-class SearchTableViewController: UITableViewController {
+class SearchTableViewController: UITableViewController, UISearchBarDelegate {
 
     @IBOutlet weak var searchBar: UISearchBar!
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
+        searchBar.delegate = self
     }
 
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        guard let searchName = searchBar.text else { return }
+        bookController.fetctJson(with: searchName) { (bookItem, error) in
+            self.bookController.bookItem = bookItem ?? []
+            DispatchQueue.main.async {
+                self.tableView.reloadData()
+            }
+        }
+    }
+    
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
@@ -88,4 +93,5 @@ class SearchTableViewController: UITableViewController {
     }
     */
 
+    let bookController = BookController()
 }

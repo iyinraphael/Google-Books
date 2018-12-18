@@ -15,6 +15,9 @@
 		EBF8476521C71EC40063B2CB /* BookCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBF8476421C71EC40063B2CB /* BookCollectionViewCell.swift */; };
 		EBF8476721C71F150063B2CB /* ShelveTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBF8476621C71F150063B2CB /* ShelveTableViewCell.swift */; };
 		EBF8476921C83A440063B2CB /* Book.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBF8476821C83A440063B2CB /* Book.swift */; };
+		EBF8476B21C841710063B2CB /* Network.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBF8476A21C841710063B2CB /* Network.swift */; };
+		EBF8476D21C843480063B2CB /* BookController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBF8476C21C843480063B2CB /* BookController.swift */; };
+		EBF8476F21C85DCC0063B2CB /* BookItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBF8476E21C85DCC0063B2CB /* BookItem.swift */; };
 		EBFAAF9821BF27D800121710 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBFAAF9721BF27D800121710 /* AppDelegate.swift */; };
 		EBFAAF9D21BF27D800121710 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EBFAAF9B21BF27D800121710 /* Main.storyboard */; };
 		EBFAAF9F21BF27DA00121710 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EBFAAF9E21BF27DA00121710 /* Assets.xcassets */; };
@@ -30,6 +33,9 @@
 		EBF8476421C71EC40063B2CB /* BookCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookCollectionViewCell.swift; sourceTree = "<group>"; };
 		EBF8476621C71F150063B2CB /* ShelveTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShelveTableViewCell.swift; sourceTree = "<group>"; };
 		EBF8476821C83A440063B2CB /* Book.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Book.swift; sourceTree = "<group>"; };
+		EBF8476A21C841710063B2CB /* Network.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Network.swift; sourceTree = "<group>"; };
+		EBF8476C21C843480063B2CB /* BookController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookController.swift; sourceTree = "<group>"; };
+		EBF8476E21C85DCC0063B2CB /* BookItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookItem.swift; sourceTree = "<group>"; };
 		EBFAAF9421BF27D800121710 /* Google Books.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Google Books.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		EBFAAF9721BF27D800121710 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		EBFAAF9C21BF27D800121710 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -83,6 +89,8 @@
 		EBFAAFA921BF937000121710 /* Model Controller */ = {
 			isa = PBXGroup;
 			children = (
+				EBF8476A21C841710063B2CB /* Network.swift */,
+				EBF8476C21C843480063B2CB /* BookController.swift */,
 			);
 			path = "Model Controller";
 			sourceTree = "<group>";
@@ -105,6 +113,7 @@
 			isa = PBXGroup;
 			children = (
 				EBF8476821C83A440063B2CB /* Book.swift */,
+				EBF8476E21C85DCC0063B2CB /* BookItem.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -180,11 +189,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EBF8476B21C841710063B2CB /* Network.swift in Sources */,
+				EBF8476D21C843480063B2CB /* BookController.swift in Sources */,
 				EBFAAF9821BF27D800121710 /* AppDelegate.swift in Sources */,
 				EBF8475D21C71DF00063B2CB /* BookshelfCollectionViewController.swift in Sources */,
 				EBF8476121C71E570063B2CB /* DetailViewController.swift in Sources */,
 				EBF8476321C71E930063B2CB /* SearchTableViewCell.swift in Sources */,
 				EBF8476521C71EC40063B2CB /* BookCollectionViewCell.swift in Sources */,
+				EBF8476F21C85DCC0063B2CB /* BookItem.swift in Sources */,
 				EBF8476921C83A440063B2CB /* Book.swift in Sources */,
 				EBF8475F21C71E2E0063B2CB /* ShelfTableViewController.swift in Sources */,
 				EBF8476721C71F150063B2CB /* ShelveTableViewCell.swift in Sources */,
