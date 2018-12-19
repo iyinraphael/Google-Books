@@ -14,7 +14,7 @@ extension BookController {
     func fetctJson(with searchName: String, completion: @escaping ([Book]?, Error?) -> Void ) {
         
         var urlComponents = URLComponents(url: BookController.baseURL, resolvingAgainstBaseURL: true)
-        let queryBookItem = URLQueryItem(name:"q", value: "\(searchName)+intitle")
+        let queryBookItem = URLQueryItem(name:"q", value: "\(searchName)")
         urlComponents?.queryItems = [queryBookItem]
         
         guard let requestURl = urlComponents?.url else {
@@ -47,7 +47,7 @@ extension BookController {
                 let jsonDecoder = JSONDecoder()
                 let bookItem = try jsonDecoder.decode(BookItem.self, from: data)
                 self.bookItem = bookItem.items
-               print("\(bookItem.items[1].volumeInfo.authors)")
+//               print("\(bookItem.items[1].volumeInfo.authors)")
                 completion(self.bookItem, nil)
             } catch {
                 NSLog("Unable to decode data into bookItem: \(error)")

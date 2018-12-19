@@ -15,6 +15,13 @@ class BookController {
     var bookItem = [Book]()
     var books = [Book]()
     
+    func book(at index: IndexPath) -> Book {
+        return bookItem[index.row]
+    }
+    
+    func numberOfRow() -> Int {
+        return bookItem.count
+    }
     
 
 }
