@@ -24,7 +24,8 @@ struct Book: Codable {
             let thumbnail: String
         }
     
-        }
+    }
+    let identifier: String = UUID().uuidString
 
 }
 

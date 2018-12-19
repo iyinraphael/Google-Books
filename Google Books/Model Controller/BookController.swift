@@ -11,12 +11,10 @@ import Foundation
 class BookController {
     
     static let baseURL = URL(string: "https://www.googleapis.com/books/v1/volumes")!
+    static let firebaseURL = URL(string: "https://message-board-8b6f1.firebaseio.com/")!
     var bookItem = [Book]()
     var books = [Book]()
     
     
-    func add(book: Book) {
-        books.append(book)
-    }
 
 }

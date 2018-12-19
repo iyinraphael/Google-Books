@@ -47,7 +47,7 @@ extension BookController {
                 let jsonDecoder = JSONDecoder()
                 let bookItem = try jsonDecoder.decode(BookItem.self, from: data)
                 self.bookItem = bookItem.items
-                print(bookItem.items[0].volumeInfo.description)
+               print("\(bookItem.items[1].volumeInfo.authors)")
                 completion(self.bookItem, nil)
             } catch {
                 NSLog("Unable to decode data into bookItem: \(error)")
@@ -57,4 +57,31 @@ extension BookController {
         }.resume()
     }
     
+    
+    
+    func put(book: Book, completion: @escaping () -> Error?) {
+        let url = BookController.firebaseURL
+            .appendingPathComponent(book.identifier)
+            .appendingPathExtension("json")
+        var request = URLRequest(url: url)
+        request.httpMethod = "POST"
+        
+        do{
+            
+            let jsonEncoder = JSONEncoder()
+            request.httpBody = try jsonEncoder.encode(book)
+            
+        } catch {
+            
+            NSLog("Error occured when encoding\(error)")
+            return
+        }
+        
+        URLSession.shared.dataTask(with: request) { (_, _, error) in
+            if let error = error {
+                NSLog("Error occured posting new json \(error)")
+            }
+        }.resume()
+    }
+
 }
