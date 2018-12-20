@@ -14,7 +14,7 @@ extension BookController {
     func fetctJson(with searchName: String, completion: @escaping ([Book]?, Error?) -> Void ) {
         
         var urlComponents = URLComponents(url: BookController.baseURL, resolvingAgainstBaseURL: true)
-        let queryBookItem = URLQueryItem(name:"q", value: "\(searchName)")
+        let queryBookItem = URLQueryItem(name:"q", value: "\(searchName.lowercased())+intitle")
         urlComponents?.queryItems = [queryBookItem]
         
         guard let requestURl = urlComponents?.url else {

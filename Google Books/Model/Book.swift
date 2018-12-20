@@ -26,6 +26,7 @@ struct Book: Codable {
     
     }
     let identifier: String = UUID().uuidString
+//    var isLiked = false
 
 }
 
