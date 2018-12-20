@@ -14,7 +14,7 @@ extension BookController {
     func fetctJson(with searchName: String, completion: @escaping ([Book]?, Error?) -> Void ) {
         
         var urlComponents = URLComponents(url: BookController.baseURL, resolvingAgainstBaseURL: true)
-        let queryBookItem = URLQueryItem(name:"q", value: "\(searchName.lowercased())+intitle")
+        let queryBookItem = URLQueryItem(name:"q", value: "\(searchName.lowercased())+terms")
         urlComponents?.queryItems = [queryBookItem]
         
         guard let requestURl = urlComponents?.url else {
@@ -59,9 +59,9 @@ extension BookController {
     
     
     
-    func put(book: Book, completion: @escaping () -> Error?) {
+    func put(book: Book?, completion: @escaping () -> Error?) {
         let url = BookController.firebaseURL
-            .appendingPathComponent(book.identifier)
+            .appendingPathComponent(book!.identifier)
             .appendingPathExtension("json")
         var request = URLRequest(url: url)
         request.httpMethod = "POST"

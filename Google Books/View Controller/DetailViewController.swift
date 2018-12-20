@@ -10,6 +10,7 @@ import UIKit
 
 class DetailViewController: UIViewController {
 
+    let bookController = BookController()
     var book: Book? {
         didSet {
             updateView()
@@ -38,10 +39,12 @@ class DetailViewController: UIViewController {
                 }
 
             }
+            self.title = book.volumeInfo.title
             self.bookNameLabel.text = book.volumeInfo.title
             self.aurthorNameLabel.text = "\(author[0])"
             self.subtitleLabel.text = subtitle
             self.descriptionTextView.text = description
+            
         }
 
     }
@@ -54,6 +57,10 @@ class DetailViewController: UIViewController {
     
     @IBAction func addToShelf(_ sender: Any) {
         
+        bookController.put(book: book) { () -> Error? in
+           fatalError()
+        }
+        navigationController?.popViewController(animated: true)
     }
     
 }
