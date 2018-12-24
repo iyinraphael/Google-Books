@@ -18,13 +18,16 @@ class SearchTableViewController: UITableViewController, UISearchBarDelegate {
     }
 
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-        guard let searchName = searchBar.text else { return }
+        guard var searchName = searchBar.text else { return }
         bookController.fetctJson(with: searchName) { (bookItem, error) in
             DispatchQueue.main.async {
-                self.bookController.bookItem = bookItem!
+                self.bookController.bookItems = bookItem!
                 self.tableView.reloadData()
+                searchBar.resignFirstResponder()
             }
         }
+        
+        
     }
     
     // MARK: - Table view data source
@@ -48,6 +51,9 @@ class SearchTableViewController: UITableViewController, UISearchBarDelegate {
         }
     }
   
-
+    @IBAction func createBookshelf(_ sender: Any) {
+        
+    }
+    
     let bookController = BookController()
 }

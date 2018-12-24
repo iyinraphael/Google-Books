@@ -12,15 +12,15 @@ class BookController {
     
     static let baseURL = URL(string: "https://www.googleapis.com/books/v1/volumes")!
     static let firebaseURL = URL(string: "https://message-board-8b6f1.firebaseio.com/")!
-    var bookItem = [Book]()
-    var books = [Book]()
+    var bookItems = [Book]()
+    var myBookItems = [Book]()
     
     func book(at index: IndexPath) -> Book {
-        return bookItem[index.row]
+        return bookItems[index.row]
     }
     
     func numberOfRow() -> Int {
-        return bookItem.count
+        return bookItems.count
     }
     
 

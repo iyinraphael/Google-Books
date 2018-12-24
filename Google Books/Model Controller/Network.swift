@@ -46,9 +46,9 @@ extension BookController {
             do {
                 let jsonDecoder = JSONDecoder()
                 let bookItem = try jsonDecoder.decode(BookItem.self, from: data)
-                self.bookItem = bookItem.items
+                self.bookItems = bookItem.items
 //               print("\(bookItem.items[1].volumeInfo.authors)")
-                completion(self.bookItem, nil)
+                completion(self.bookItems, nil)
             } catch {
                 NSLog("Unable to decode data into bookItem: \(error)")
                 completion(nil, error)
@@ -66,22 +66,45 @@ extension BookController {
         var request = URLRequest(url: url)
         request.httpMethod = "POST"
         
-        do{
-            
-            let jsonEncoder = JSONEncoder()
-            request.httpBody = try jsonEncoder.encode(book)
-            
-        } catch {
-            
-            NSLog("Error occured when encoding\(error)")
-            return
-        }
-        
         URLSession.shared.dataTask(with: request) { (_, _, error) in
+            
             if let error = error {
                 NSLog("Error occured posting new json \(error)")
             }
+            
+            do{
+                
+                let jsonEncoder = JSONEncoder()
+                request.httpBody = try jsonEncoder.encode(book)
+                
+            } catch {
+                
+                NSLog("Error occured when encoding\(error)")
+                return
+            }
         }.resume()
+    }
+    
+    func request( completion: @escaping (Error?) -> Void) {
+        let url = BookController.firebaseURL.appendingPathExtension("json")
+        
+        URLSession.shared.dataTask(with: url ) { (data, _, error) in
+            guard error == nil , let data = data else {
+                if let error = error {
+                    NSLog("Error occurred trying to retrieve data from Firebase \(error)")
+                }
+                return
+            }
+            
+            do {
+                let jsonDecoder = JSONDecoder()
+                let newBookItem = try jsonDecoder.decode([Book].self, from: data)
+                self.myBookItems = newBookItem
+            } catch {
+                NSLog("Error Decoding data \(error)")
+            }
+        }
+        
     }
 
 }

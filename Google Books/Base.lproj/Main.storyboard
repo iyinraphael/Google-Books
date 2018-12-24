@@ -83,9 +83,7 @@
                             <outlet property="delegate" destination="BIf-OO-F8f" id="0NS-bw-2gn"/>
                         </connections>
                     </collectionView>
-                    <navigationItem key="navigationItem" id="lgK-I5-EVA">
-                        <barButtonItem key="rightBarButtonItem" title="Create Bookshelf" id="ONv-WN-TWc"/>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" id="lgK-I5-EVA"/>
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ebW-OW-w38" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -184,7 +182,13 @@
                             <outlet property="delegate" destination="H3S-C0-ZT4" id="Eru-KM-4uX"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="J6T-Lk-x2u"/>
+                    <navigationItem key="navigationItem" id="J6T-Lk-x2u">
+                        <barButtonItem key="rightBarButtonItem" title="Create Bookshelf" id="koD-a8-7bh">
+                            <connections>
+                                <action selector="createBookshelf:" destination="H3S-C0-ZT4" id="38A-Gf-eZ9"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="searchBar" destination="kj8-u2-lmT" id="2wg-oy-43C"/>
                     </connections>
@@ -365,6 +369,6 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="yV7-UV-5Cj"/>
+        <segue reference="IRy-Y9-rDU"/>
     </inferredMetricsTieBreakers>
 </document>
