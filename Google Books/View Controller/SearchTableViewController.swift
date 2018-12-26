@@ -52,8 +52,35 @@ class SearchTableViewController: UITableViewController, UISearchBarDelegate {
     }
   
     @IBAction func createBookshelf(_ sender: Any) {
+        let alert = UIAlertController(title: "Create a bookshelf", message: "This is an alert.", preferredStyle: .alert)
+
+        alert.addTextField { (textField) in
+            textField.placeholder = "Create your Bookshelf"
+//            guard let text = textField.text else {return}
+//           self.newText = text
+        }
+        alert.addAction(UIAlertAction(title: NSLocalizedString("OK", comment: "Default action"), style: .default, handler: { _ in
+            if let alertTextField = alert.textFields?.first, alertTextField.text != nil {
+                guard let text = alertTextField.text else {return}
+                self.bookController.createBookshelfName(name: text)
+            }
+            NSLog("The \"OK\" alert occured.")
+        }))
         
+        self.present(alert, animated: true, completion: nil)
+        print("\(self.bookController.bookshelfNames)")
     }
     
+//    func updateBookshelfName(){
+//        if let newField = newTextField {
+//            bookshelfName = newField.text
+//            print("show me some \(bookshelfName)")
+//            bookController.bookshelfName.append(bookshelfName!)
+//        }
+//
+//    }
+    
     let bookController = BookController()
+
+    
 }
