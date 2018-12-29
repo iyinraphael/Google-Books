@@ -14,7 +14,8 @@ class BookController {
     static let firebaseURL = URL(string: "https://message-board-8b6f1.firebaseio.com/")!
     var bookItems = [Book]()
     var myBookItems = [Book]()
-    var bookshelfNames = [String]()
+    static var bookshelfNames = [String]()
+    static var bookshelf: [String:[Book]] = [:]
     
     func book(at index: IndexPath) -> Book {
         return bookItems[index.row]
@@ -24,9 +25,9 @@ class BookController {
         return bookItems.count
     }
     
-    func createBookshelfName(name: String){
-        bookshelfNames.append(name)
-    }
+//    func createBookshelfName(name: String){
+//        bookshelfNames.append(name)
+//    }
     
     
 

@@ -13,5 +13,10 @@ class BookCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var bookImageView: UIImageView!
     @IBOutlet weak var bookshelfNameLabel: UILabel!
     
+    func updateView(){
+        
+    }
+    
+    let bookController = BookController()
     
 }

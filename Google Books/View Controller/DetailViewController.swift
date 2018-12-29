@@ -11,6 +11,7 @@ import UIKit
 class DetailViewController: UIViewController {
 
     let bookController = BookController()
+    static var localBookshelf: [Book] = []
     var book: Book? {
         didSet {
             updateView()
@@ -56,11 +57,36 @@ class DetailViewController: UIViewController {
     @IBOutlet weak var descriptionTextView: UITextView!
     
     @IBAction func addToShelf(_ sender: Any) {
+        let alert = UIAlertController(title: "Add to Book to Bookshelf", message: dispayMessage(), preferredStyle: .alert)
+        
+        for shelf in BookController.bookshelfNames {
+        alert.addAction(UIAlertAction(title: NSLocalizedString(shelf, comment: "Default action"), style: .default, handler: { _ in
+                if self.book != nil {
+                    DetailViewController.localBookshelf.append(self.book!)
+                    BookController.bookshelf[shelf] = DetailViewController.localBookshelf
+                    print("\(BookController.bookshelf)")
+                }
+                NSLog("The \"OK\" alert occured.")
+            }))
+        }
+        self.present(alert, animated: true, completion: nil)
         
         bookController.put(book: book) { () -> Error? in
            fatalError()
         }
-        navigationController?.popViewController(animated: true)
+        print("\(BookController.bookshelfNames)")
+        
+
+    }
+    
+    func dispayMessage() -> String {
+        let message = "You have \(BookController.bookshelfNames.count) Bookshelves"
+        if BookController.bookshelfNames.count == 1 {
+            let oneMessage = "You have 1 Bookshelf"
+            return oneMessage
+        } else {
+            return message
+        }
     }
     
 }

@@ -18,7 +18,7 @@ class SearchTableViewController: UITableViewController, UISearchBarDelegate {
     }
 
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-        guard var searchName = searchBar.text else { return }
+        guard let searchName = searchBar.text else { return }
         bookController.fetctJson(with: searchName) { (bookItem, error) in
             DispatchQueue.main.async {
                 self.bookController.bookItems = bookItem!
@@ -62,24 +62,13 @@ class SearchTableViewController: UITableViewController, UISearchBarDelegate {
         alert.addAction(UIAlertAction(title: NSLocalizedString("OK", comment: "Default action"), style: .default, handler: { _ in
             if let alertTextField = alert.textFields?.first, alertTextField.text != nil {
                 guard let text = alertTextField.text else {return}
-                self.bookController.createBookshelfName(name: text)
+                BookController.bookshelfNames.append(text)
             }
             NSLog("The \"OK\" alert occured.")
         }))
         
         self.present(alert, animated: true, completion: nil)
-        print("\(self.bookController.bookshelfNames)")
     }
-    
-//    func updateBookshelfName(){
-//        if let newField = newTextField {
-//            bookshelfName = newField.text
-//            print("show me some \(bookshelfName)")
-//            bookController.bookshelfName.append(bookshelfName!)
-//        }
-//
-//    }
-    
     let bookController = BookController()
 
     

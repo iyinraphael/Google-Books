@@ -10,6 +10,8 @@ import UIKit
 
 class SearchTableViewCell: UITableViewCell {
     
+    let bookController = BookController()
+    
     var book: Book? {
         didSet {
          updateView()
@@ -34,6 +36,9 @@ class SearchTableViewCell: UITableViewCell {
     @IBAction func isReadButton(_ sender: Any) {
         
     }
+    
+    
+    
     @IBOutlet weak var bookImageView: UIImageView!
     @IBOutlet weak var bookNameLabel: UILabel!
     @IBOutlet weak var authorNameLabel: UILabel!
