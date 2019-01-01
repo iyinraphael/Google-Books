@@ -57,6 +57,9 @@ class DetailViewController: UIViewController {
     @IBOutlet weak var descriptionTextView: UITextView!
     
     @IBAction func addToShelf(_ sender: Any) {
+        
+        bookController.put(book: book)
+    
         let alert = UIAlertController(title: "Add to Book to Bookshelf", message: dispayMessage(), preferredStyle: .alert)
         
         for shelf in BookController.bookshelfNames {
@@ -69,14 +72,10 @@ class DetailViewController: UIViewController {
                 NSLog("The \"OK\" alert occured.")
             }))
         }
+        
         self.present(alert, animated: true, completion: nil)
-        
-        bookController.put(book: book) { () -> Error? in
-           fatalError()
-        }
         print("\(BookController.bookshelfNames)")
-        
-
+    
     }
     
     func dispayMessage() -> String {

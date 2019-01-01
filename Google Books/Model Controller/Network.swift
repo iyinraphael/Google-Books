@@ -59,29 +59,31 @@ extension BookController {
     
     
     
-    func put(book: Book?, completion: @escaping () -> Error?) {
+    func put(book: Book?, completion: @escaping ((Error?) -> Void) = { _ in } ) {
         let url = BookController.firebaseURL
             .appendingPathComponent(book!.identifier)
             .appendingPathExtension("json")
         var request = URLRequest(url: url)
         request.httpMethod = "POST"
         
+        do{
+            
+            let jsonEncoder = JSONEncoder()
+            request.httpBody = try jsonEncoder.encode(book)
+        } catch {
+            
+            NSLog("Error occured when encoding\(error)")
+            return
+        }
+        
         URLSession.shared.dataTask(with: request) { (_, _, error) in
             
             if let error = error {
                 NSLog("Error occured posting new json \(error)")
-            }
-            
-            do{
-                
-                let jsonEncoder = JSONEncoder()
-                request.httpBody = try jsonEncoder.encode(book)
-                
-            } catch {
-                
-                NSLog("Error occured when encoding\(error)")
+                completion(NSError())
                 return
             }
+            completion(nil)
         }.resume()
     }
     
@@ -94,8 +96,8 @@ extension BookController {
                     NSLog("Error occurred trying to retrieve data from Firebase \(error)")
                 }
                 return
+                
             }
-            
             do {
                 let jsonDecoder = JSONDecoder()
                 let newBookItem = try jsonDecoder.decode([Book].self, from: data)
@@ -103,7 +105,8 @@ extension BookController {
             } catch {
                 NSLog("Error Decoding data \(error)")
             }
-        }
+
+        }.resume()
         
     }
 
