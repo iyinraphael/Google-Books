@@ -25,6 +25,11 @@ class BookController {
         return bookItems.count
     }
     
+    func createBookshelfName(for name: String) {
+        BookController.bookshelfNames.append(name)
+        saveToPersistence()
+    }
+ 
 //    func createBookshelfName(name: String){
 //        bookshelfNames.append(name)
 //    }

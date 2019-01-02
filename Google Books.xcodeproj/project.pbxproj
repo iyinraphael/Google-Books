@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		EB78D7C721DC960E00B6E5A7 /* Local Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB78D7C621DC960E00B6E5A7 /* Local Persistence.swift */; };
 		EBF8475B21C71DB70063B2CB /* SearchTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBF8475A21C71DB70063B2CB /* SearchTableViewController.swift */; };
 		EBF8475D21C71DF00063B2CB /* BookshelfCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBF8475C21C71DF00063B2CB /* BookshelfCollectionViewController.swift */; };
 		EBF8475F21C71E2E0063B2CB /* ShelfTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBF8475E21C71E2E0063B2CB /* ShelfTableViewController.swift */; };
@@ -25,6 +26,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		EB78D7C621DC960E00B6E5A7 /* Local Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Local Persistence.swift"; sourceTree = "<group>"; };
 		EBF8475A21C71DB70063B2CB /* SearchTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTableViewController.swift; sourceTree = "<group>"; };
 		EBF8475C21C71DF00063B2CB /* BookshelfCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookshelfCollectionViewController.swift; sourceTree = "<group>"; };
 		EBF8475E21C71E2E0063B2CB /* ShelfTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShelfTableViewController.swift; sourceTree = "<group>"; };
@@ -91,6 +93,7 @@
 			children = (
 				EBF8476A21C841710063B2CB /* Network.swift */,
 				EBF8476C21C843480063B2CB /* BookController.swift */,
+				EB78D7C621DC960E00B6E5A7 /* Local Persistence.swift */,
 			);
 			path = "Model Controller";
 			sourceTree = "<group>";
@@ -192,6 +195,7 @@
 				EBF8476B21C841710063B2CB /* Network.swift in Sources */,
 				EBF8476D21C843480063B2CB /* BookController.swift in Sources */,
 				EBFAAF9821BF27D800121710 /* AppDelegate.swift in Sources */,
+				EB78D7C721DC960E00B6E5A7 /* Local Persistence.swift in Sources */,
 				EBF8475D21C71DF00063B2CB /* BookshelfCollectionViewController.swift in Sources */,
 				EBF8476121C71E570063B2CB /* DetailViewController.swift in Sources */,
 				EBF8476321C71E930063B2CB /* SearchTableViewCell.swift in Sources */,

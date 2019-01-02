@@ -62,7 +62,7 @@ class SearchTableViewController: UITableViewController, UISearchBarDelegate {
         alert.addAction(UIAlertAction(title: NSLocalizedString("OK", comment: "Default action"), style: .default, handler: { _ in
             if let alertTextField = alert.textFields?.first, alertTextField.text != nil {
                 guard let text = alertTextField.text else {return}
-                BookController.bookshelfNames.append(text)
+                self.bookController.createBookshelfName(for: text)
             }
             NSLog("The \"OK\" alert occured.")
         }))
