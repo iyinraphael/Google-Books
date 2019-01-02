@@ -64,7 +64,7 @@ extension BookController {
             .appendingPathComponent(book!.identifier)
             .appendingPathExtension("json")
         var request = URLRequest(url: url)
-        request.httpMethod = "POST"
+        request.httpMethod = "PUT"
         
         do{
             
@@ -87,7 +87,7 @@ extension BookController {
         }.resume()
     }
     
-    func request( completion: @escaping (Error?) -> Void) {
+    func request( completion: @escaping ((Error?) -> Void) = {_ in }) {
         let url = BookController.firebaseURL.appendingPathExtension("json")
         
         URLSession.shared.dataTask(with: url ) { (data, _, error) in
@@ -100,8 +100,9 @@ extension BookController {
             }
             do {
                 let jsonDecoder = JSONDecoder()
-                let newBookItem = try jsonDecoder.decode([Book].self, from: data)
+                let newBookItem = try jsonDecoder.decode([String: Book].self, from: data).map({$0.value})
                 self.myBookItems = newBookItem
+                print("\(self.myBookItems)")
             } catch {
                 NSLog("Error Decoding data \(error)")
             }

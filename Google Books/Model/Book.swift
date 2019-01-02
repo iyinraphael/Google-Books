@@ -10,22 +10,23 @@ import Foundation
 
 
 struct Book: Codable {
-        
+    
+    let identifier: String = UUID().uuidString
+    
     let volumeInfo: VolumeInfo
     
-    struct VolumeInfo: Codable {
-        let title: String
-        let subtitle: String?
-        let authors: [String]?
-        let description: String?
-        let imageLinks: ImageLinks?
+        struct VolumeInfo: Codable {
+            let title: String
+            let subtitle: String?
+            let authors: [String]?
+            let description: String?
+            let imageLinks: ImageLinks?
+            
+            struct ImageLinks: Codable {
+                let thumbnail: String
+            }
         
-        struct ImageLinks: Codable {
-            let thumbnail: String
         }
-    
-    }
-    let identifier: String = UUID().uuidString
 //    var isLiked = false
 
 }
