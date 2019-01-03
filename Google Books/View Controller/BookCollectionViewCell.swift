@@ -14,9 +14,21 @@ class BookCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var bookshelfNameLabel: UILabel!
     
     func updateView(){
+        if let book = book {
+            guard let imageLink = book.volumeInfo.imageLinks,
+                let imageData = try? Data(contentsOf: URL(string: imageLink.thumbnail)!) else {return}
+            bookshelfNameLabel.text = book.volumeInfo.title
+            bookImageView.image = UIImage(data:imageData)
+            
+        }
         
     }
     
+    var book: Book?{
+        didSet{
+            updateView()
+        }
+    }
     let bookController = BookController()
     
 }

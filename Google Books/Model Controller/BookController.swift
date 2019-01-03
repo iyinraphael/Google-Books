@@ -29,11 +29,10 @@ class BookController {
         BookController.bookshelfNames.append(name)
         saveToPersistence()
     }
- 
-//    func createBookshelfName(name: String){
-//        bookshelfNames.append(name)
-//    }
     
+//    func deleteBookshelfName(for name: String) {
+//        BookController.bookshelfNames.re
+//    }
     
 
 }
